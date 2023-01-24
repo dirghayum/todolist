@@ -1,14 +1,12 @@
 package com.dmainali.todolist.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "todo")
 public class TodoItem {
 
+    @Id
     private Long id;
     private String title;
     private String description;
@@ -24,8 +22,7 @@ public class TodoItem {
         this.done = done;
     }
 
-    @Id
-    @GeneratedValue
+
     public Long getId() {
         return id;
     }
@@ -56,5 +53,15 @@ public class TodoItem {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    @Override
+    public String toString() {
+        return "TodoItem{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", done=" + done +
+                '}';
     }
 }
